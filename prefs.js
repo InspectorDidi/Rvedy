@@ -1,0 +1,16 @@
+/*
+  Peferences for you the user.
+*/
+const advancedLog = false //show everything that is happening.
+const deleteCommands = true //delete commands requested by you
+const advancedCommands = false //dangerous
+const prefix = (".")
+// super secret
+const userToken = ("token_here")
+
+// end of peferences
+exports.token = userToken
+exports.delComs = advancedCommands
+exports.advLog = advancedLog
+exports.advComs = advancedCommands
+exports.prefix = prefix
