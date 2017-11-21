@@ -4,11 +4,18 @@
 	const rvedy_Version = ('11.17.17');
 	const seto = require('../prefs.js')
 // Begin
+ client.on('message', msg => {
 	/*
 		Advanced Commands
 			by Devr#8133
 			edited by Pigpog#0616
 	*/
+	const advancedCommands = (`
+	**__Advanced Commands__**
+	${settings.prefix}**do ** does what you type
+	${settings.prefix}**say ** messages what you typed
+	${settings.prefix}**reply ** replies what you type
+	${settings.prefix}**console ** logs what you type in console`)
 	try {
 			if (seto.advComs === true) {
 			if (msg.author.id === client.user.id) {
@@ -65,15 +72,6 @@
 		if (seto.delComs === true) { msg.delete() }
 	}
 
- client.on('message', msg => {
-// Help
-	if (msg.content === ".help") {
-		var help = new Discord.RichEmbed()
-			help.setAuthor()
- 			if (msg.author.id === client.user.id) {
- 				msg.reply()
- 			}
- 	}
  })
 
 //	|Begin|
@@ -83,5 +81,14 @@
    Delete Commands: ${seto.delComs}
    Advanced Commands: ${seto.advComs}
    Logging: ${seto.advLog}`)
+ })
+ client.on('disconnect', () => {
+	 console.log(`[Rvedy]: Disconnected!`)
+	 client.once('debug', err => {
+		 console.log(`[Rvedy Debug]: ${err}`)
+	 })
+	 client.on('ready', () => {
+		 console.log(`[Rvedy]: Connected!`)
+	 })
  })
  client.login(seto.token);
