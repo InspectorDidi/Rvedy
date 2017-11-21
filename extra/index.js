@@ -2,7 +2,7 @@
 	const Discord = require("./extra/node_modules/discord.js")	//DiscordJS Module (discordjs.org)
 	const client = new Discord.Client();
 	const rvedy_Version = ('11.17.17');
-	const seto = require('./prefs.js')
+	const seto = require('../prefs.js')
 // Begin
 	/*
 		Advanced Commands
