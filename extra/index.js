@@ -12,10 +12,10 @@
 	*/
 	const advancedCommands = (`
 	**__Advanced Commands__**
-	${settings.prefix}**do ** does what you type
-	${settings.prefix}**say ** messages what you typed
-	${settings.prefix}**reply ** replies what you type
-	${settings.prefix}**console ** logs what you type in console`)
+	${seto.prefix}**do ** does what you type
+	${seto.prefix}**say ** messages what you typed
+	${seto.prefix}**reply ** replies what you type
+	${seto.prefix}**console ** logs what you type in console`)
 	try {
 			if (seto.advComs === true) {
 			if (msg.author.id === client.user.id) {
