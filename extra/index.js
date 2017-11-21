@@ -5,6 +5,13 @@
 	const seto = require('../prefs.js')
 // Begin
  client.on('message', msg => {
+	 function report(x) {
+	 		if (msg.guild === null) {
+	 		console.log(`[${client.user.tag} ${msg.channel.name}]: ${seto.prefix}${x}`)
+	 		} else{
+	 		console.log(`[${client.user.tag} ${msg.guild.name}]: ${seto.prefix}${x}`)
+	 	}
+	} //by devr#8133 for you
 	/*
 		Advanced Commands
 			by Devr#8133
