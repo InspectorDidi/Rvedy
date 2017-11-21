@@ -7,22 +7,16 @@
  client.on('message', msg => {
 	 function report(x) {
 	 		if (msg.guild === null) {
-	 		console.log(`[${client.user.tag} ${msg.channel.name}]: ${seto.prefix}${x}`)
+	 		console.log(`[${client.user.tag} ${msg.channel.name}]: ${x}`)
 	 		} else{
-	 		console.log(`[${client.user.tag} ${msg.guild.name}]: ${seto.prefix}${x}`)
+	 		console.log(`[${client.user.tag} ${msg.guild.name}]: ${x}`)
 	 	}
 	} //by devr#8133 for you
 	/*
 		Advanced Commands
 			by Devr#8133
 			edited by Pigpog#0616
-	*/
-	const advancedCommands = (`
-	**__Advanced Commands__**
-	${seto.prefix}**do ** does what you type
-	${seto.prefix}**say ** messages what you typed
-	${seto.prefix}**reply ** replies what you type
-	${seto.prefix}**console ** logs what you type in console`)
+	*/ 
 	try {
 			if (seto.advComs === true) {
 			if (msg.author.id === client.user.id) {
