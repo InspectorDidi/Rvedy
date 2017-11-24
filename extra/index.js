@@ -7,7 +7,6 @@
 /*
 	Modular Index!
 */
-	const watchr = require('watchr')
 	const os = require('os')
 	const fs = require('fs')
 try {
@@ -118,7 +117,7 @@ if (seto.advLog === true) {
 })}
 
 client.on('disconnect', () => {
-	 console.log(`[${client.user.username}]: Disconnected!`)
+	 console.log(`[Rvedy]: Disconnected!`)
 	 client.once('debug', err => {
 		 console.log(`[Debug]: ${err}`)
 	 })
