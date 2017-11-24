@@ -3,8 +3,8 @@
 */
 const advancedLog = false //show everything that is happening.
 const deleteCommands = true //delete commands requested by you
-const advancedCommands = false //dangerous
-const prefix = (".")
+const advancedCommands = true //dangerous
+const prefix = ("-")
 // super secret
 const userToken = ("token_here")
 

@@ -1,22 +1,45 @@
 // Constructs
-	const Discord = require("./node_modules/discord.js")	//DiscordJS Module (discordjs.org)
+	const Discord = require("discord.js")	//DiscordJS Module (discordjs.org)
 	const client = new Discord.Client();
-	const rvedy_Version = ('11.17.17');
-	const seto = require('../prefs.js')
+	const rvedy_Version = ('2_17');
+	const seto = require('./prefs.js')
 // Begin
+/*
+	Modular Index!
+*/
+	const watchr = require('watchr')
+	const os = require('os')
+	const fs = require('fs')
+try {
+
+	fs.watch('scripts')
+	fs.on('change', chg => {
+		console.log(chg)
+	})
+} catch(err) {
+
+}
+
+/*
+}
+ 	End of Modular Index!
+*/
  client.on('message', msg => {
 	 function report(x) {
 	 		if (msg.guild === null) {
-	 		console.log(`[${client.user.tag} ${msg.channel.name}]: ${x}`)
+	 		console.log(`[${client.user.username}@${msg.channel.name}]: ${x}`)
 	 		} else{
-	 		console.log(`[${client.user.tag} ${msg.guild.name}]: ${x}`)
+	 		console.log(`[${client.user.username}@${msg.guild.name}]: ${x}`)
 	 	}
 	} //by devr#8133 for you
 	/*
 		Advanced Commands
 			by Devr#8133
 			edited by Pigpog#0616
-	*/ 
+		Notes:
+		These commands will remain here, all future
+		programs like mimic will be in scripts folder
+	*/
 	try {
 			if (seto.advComs === true) {
 			if (msg.author.id === client.user.id) {
@@ -75,21 +98,29 @@
 
  })
 
-//	|Begin|
+/*
+	Startup Script
+*/
+client.on('ready', () => {
+	console.log(`[${client.user.username}]: Connected!`)
+})
  client.once('ready', () => {
- 	console.log('[Rvedy]: Ready!')
- 	console.log(`  Prefix: ${seto.prefix}
-   Delete Commands: ${seto.delComs}
-   Advanced Commands: ${seto.advComs}
-   Logging: ${seto.advLog}`)
- })
- client.on('disconnect', () => {
-	 console.log(`[Rvedy]: Disconnected!`)
+ 	console.log(`[${client.user.username}]: Peferences
+Prefix: ${seto.prefix}
+Delete Commands: ${seto.delComs}
+Advanced Commands: ${seto.advComs}
+Advanced Logging: ${seto.advLog}`)
+})
+
+if (seto.advLog === true) {
+	client.on('debug', dbug => {
+    console.log(`[AdvLog]: ${dbug}`)
+})}
+
+client.on('disconnect', () => {
+	 console.log(`[${client.user.username}]: Disconnected!`)
 	 client.once('debug', err => {
-		 console.log(`[Rvedy Debug]: ${err}`)
-	 })
-	 client.on('ready', () => {
-		 console.log(`[Rvedy]: Connected!`)
+		 console.log(`[Debug]: ${err}`)
 	 })
  })
- client.login(seto.token);
+client.login(seto.token);
