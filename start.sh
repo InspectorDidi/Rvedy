@@ -1,1 +1,1 @@
-node ./extra/index.js
+node './extra/index.js'
