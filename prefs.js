@@ -6,7 +6,7 @@ const deleteCommands = true //delete commands requested by you
 const advancedCommands = true //dangerous
 const prefix = ("-")
 // super secret
-const userToken = ("token_here")
+const userToken = ("your_token_here")
 
 // end of peferences
 exports.token = userToken

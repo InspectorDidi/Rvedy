@@ -2,7 +2,11 @@ const Discord = require("../node_modules/discord.js")	//DiscordJS Module (discor
 const client = new Discord.Client();
 const seto = require('../prefs.js')
 console.log('mimic loaded')
-client.on('message', msg =>{
+
+client.on('message', msg => {
+	if (msg.content === "-mimic") {
+		msg.reply('mimi was loaded properly')
+	}
 try {
 		if (msg.author.id === client.user.id) {
 		if (msg.content.indexOf(seto.prefix+"mimic ") === 0) {
