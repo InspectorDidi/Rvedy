@@ -2,7 +2,7 @@
 	const Discord = require("discord.js")	//DiscordJS Module (discordjs.org)
 	const client = new Discord.Client();
 	const rvedy_Version = ('2_17');
-	const seto = require('../prefs.js')
+	const seto = require('./prefs.js')
 
 // Begin
  client.on('message', msg => {
