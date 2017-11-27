@@ -3,41 +3,24 @@
 	const client = new Discord.Client();
 	const rvedy_Version = ('2_17');
 	const seto = require('./prefs.js')
+
 // Begin
-/*
-	Modular Index!
-*/
-	const os = require('os')
-	const fs = require('fs')
-try {
-
-	fs.watch('scripts')
-	fs.on('change', chg => {
-		console.log(chg)
-	})
-} catch(err) {
-
-}
-
-/*
-}
- 	End of Modular Index!
-*/
  client.on('message', msg => {
 	 function report(x) {
-	 		if (msg.guild === null) {
-	 		console.log(`[${client.user.username}@${msg.channel.name}]: ${x}`)
-	 		} else{
+	 		if (msg.channel.type === 'dm') {
+	 		console.log(`[${client.user.username}@${msg.channel.recipient.username}]: ${x}`)
+		} if (msg.guild ==! null){
 	 		console.log(`[${client.user.username}@${msg.guild.name}]: ${x}`)
-	 	}
+	 	} if (msg.channel.type === 'text') {
+			console.log(`[${client.user.username}@${msg.channel.name}]: ${x}`)
+		}
 	} //by devr#8133 for you
 	/*
 		Advanced Commands
 			by Devr#8133
 			edited by Pigpog#0616
 		Notes:
-		These commands will remain here, all future
-		programs like mimic will be in scripts folder
+	These commands will remain in the index
 	*/
 	try {
 			if (seto.advComs === true) {
@@ -122,4 +105,22 @@ client.on('disconnect', () => {
 		 console.log(`[Debug]: ${err}`)
 	 })
  })
+ /*
+ 	Modular Index!
+ */
+ 	const os = require('os')
+ 	const fs = require('fs')
+ try {
+
+ 	fs.watch('scripts')
+ 	fs.on('change', chg => {
+ 		console.log(chg)
+ 	})
+ } catch(err) {
+
+ }
+
+ /*
+  	End of Modular Index!
+ */
 client.login(seto.token);
