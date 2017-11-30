@@ -15,3 +15,6 @@ Now comfy.. Modular update coming soon.
  * **say** messages what you typed
  * **reply** replies what you type
  * **console** logs what you type in console
+
+# Configuration
+edit `prefs.json` on top of the directory for simple-modifications.
