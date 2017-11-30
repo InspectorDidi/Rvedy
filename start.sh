@@ -1,1 +1,0 @@
-node './extra/index.js'
