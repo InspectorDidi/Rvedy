@@ -2,19 +2,24 @@
 	const Discord = require("discord.js")	//DiscordJS Module (discordjs.org)
 	const client = new Discord.Client();
 	const rvedy_Version = ('2_17');
+<<<<<<< HEAD
 	const seto = require('../prefs.json')
 
+=======
+	const seto = require('../prefs.js')
+// Functions
+function report(x, msg) {
+	 if (msg.channel.type === 'dm') {
+	 console.log(`[${client.user.username}@${msg.channel.recipient.username}]: ${x}`)
+ } if (msg.guild ==! null){
+	 console.log(`[${client.user.username}@${msg.guild.name}]: ${x}`)
+ } if (msg.channel.type === 'text') {
+	 console.log(`[${client.user.username}@${msg.channel.name}]: ${x}`)
+ }
+} //by devr#8133 for you
+>>>>>>> 324033476a332f08934962eb12190041c21d8212
 // Begin
  client.on('message', msg => {
-	 function report(x) {
-	 		if (msg.channel.type === 'dm') {
-	 		console.log(`[${client.user.username}@${msg.channel.recipient.username}]: ${x}`)
-		} if (msg.guild ==! null){
-	 		console.log(`[${client.user.username}@${msg.guild.name}]: ${x}`)
-	 	} if (msg.channel.type === 'text') {
-			console.log(`[${client.user.username}@${msg.channel.name}]: ${x}`)
-		}
-	} //by devr#8133 for you
 	/*
 		Advanced Commands
 			by Devr#8133
@@ -111,13 +116,20 @@ client.on('disconnect', () => {
  	const os = require('os')
  	const fs = require('fs')
  try {
-
  	fs.watch('scripts')
  	fs.on('change', chg => {
  		console.log(chg)
  	})
  } catch(err) {
-
+	 console.log(`[Modular Index]: ${err}`)
+ }
+ if (msg.content.indexOf(seto.prefix+"mod ") === 0) {
+	 if (msg.author.id === client.user.id) {
+		 god = msg.content.subString(5)
+		 if (god ==! null) {
+			 msg.reply(`[Modular]: ${god} is loaded.`)
+		 }
+	 }
  }
 
  /*
