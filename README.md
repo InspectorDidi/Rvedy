@@ -17,4 +17,4 @@ Now comfy.. Modular update coming soon.
  * **console** logs what you type in console
 
 # Configuration
-edit `prefs.json` on top of the directory for simple-modifications.
+edit `config.json` on top of the directory for simple-modifications.
