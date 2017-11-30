@@ -109,14 +109,6 @@ client.on('disconnect', () => {
  } catch(err) {
 	 console.log(`[Modular Index]: ${err}`)
  }
- if (msg.content.indexOf(seto.prefix+"mod ") === 0) {
-	 if (msg.author.id === client.user.id) {
-		 god = msg.content.subString(5)
-		 if (god ==! null) {
-			 msg.reply(`[Modular]: ${god} is loaded.`)
-		 }
-	 }
- }
 
  /*
   	End of Modular Index!
