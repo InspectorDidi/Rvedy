@@ -6,7 +6,7 @@ Now comfy.. Modular update coming soon.
   [nodejs](nodejs.org)
 
 # Start
-  Put your user-token in `prefs.js`
+  Put your user-token in `config.json`
   Run `start.bat` for windows users
 
 # Command List
@@ -17,4 +17,4 @@ Now comfy.. Modular update coming soon.
  * **console** logs what you type in console
 
 # Configuration
-edit `config.json` on top of the directory for simple-modifications.
+all simple modifications such as prefix can be done through `config.json`
