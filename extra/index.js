@@ -113,4 +113,4 @@ client.on('disconnect', () => {
  /*
   	End of Modular Index!
  */
-client.login(seto.token);
+client.login(seto.userToken);
