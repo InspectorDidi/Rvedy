@@ -6,6 +6,18 @@
 
 // Begin
  client.on('message', msg => {
+	 function report(x) {
+		 if (msg.guild === null) {
+			 if (msg.channel.type === 'dm') {
+			 console.log(`[${client.user.username}@${msg.channel.recipient.tag}]: ${x}`)
+		 } else {
+			 console.log(`[${client.user.username}@${msg.channel.name}]: ${x}`)
+		 }
+		 } else {
+			 console.log(`[${client.user.username}@${msg.guild.name}]: ${x}`)
+		 }
+
+	 }
 	/*
 		Advanced Commands
 			by Devr#8133
@@ -14,13 +26,11 @@
 	These commands will remain in the index
 	*/
 	try {
-			if (seto.advancedCommands === true) {
-			if (msg.author.id === client.user.id) {
 			if (msg.content.indexOf(seto.prefix+"say ") === 0) {
 		    	msg.channel.send(eval(msg.content.substr(5).toString()))
 		    	report(msg.content)
 		    	if (seto.deleteCommands === true) { msg.delete() }
-			}}}
+			}
 	} catch(err){
 		console.log(`[Error]: ${msg.content} - ${err} (${msg.guild})`)
 		msg.reply(err.toString())
@@ -28,13 +38,12 @@
 	}
 
 	try {
-			if (seto.advancedCommands === true) {
 			if (msg.author.id === client.user.id) {
 			if (msg.content.indexOf(seto.prefix+"console ") === 0) {
 		    	console.log(eval(msg.content.substr(9).toString()))
 		    	report(msg.content)
 		    	if (seto.deleteCommands === true) { msg.delete() }
-			}}}
+			}}
 	} catch(err){
 		console.log(`[Error]: ${msg.content} - ${err} (${msg.guild})`)
 		msg.reply(err.toString())
@@ -42,13 +51,12 @@
 	}
 
 	try {
-			if (seto.advancedCommands === true) {
 			if (msg.author.id === client.user.id) {
 			if (msg.content.indexOf(seto.prefix+"reply ") === 0) {
 				msg.reply(eval(msg.content.substr(7).toString()))
 				report('reply '+msg.content.substr(7))
 			if (seto.deleteCommands === true) { msg.delete() }
-			}}}
+			}}
 	} catch(err){
 		console.log(`[Error]: ${msg.content} - ${err} (${msg.guild})`)
 		msg.reply(err.toString())
@@ -56,13 +64,12 @@
 	}
 
 	try {
-			if (seto.advancedCommands === true) {
 			if (msg.author.id === client.user.id) {
 			if (msg.content.indexOf(seto.prefix+"do ") === 0) {
 		    	(eval(msg.content.substr(4).toString()))
 		    	report('do '+msg.content.substr(4))
 			if (seto.deleteCommands === true) { msg.delete() }
-			}}}
+			}}
 	} catch(err){
 		console.log(`[Error]: ${msg.content} - ${err} (${msg.guild})`)
 		msg.reply(err.toString())
@@ -73,7 +80,7 @@
 
 /*
 	Startup Script
-*/seto.deleteCommands
+*/
 client.on('ready', () => {
 	console.log(`[${client.user.username}]: Connected!`)
 })
@@ -82,12 +89,12 @@ client.on('ready', () => {
 Prefix: ${seto.prefix}
 Delete Commands: ${seto.deleteCommands}
 Advanced Commands: ${seto.advancedCommands}
-Advanced Logging: ${seto.advLog}`)
+Advanced Logging: ${seto.advancedLog}`)
 })
 
-if (seto.advLog === true) {
+if (seto.advancedLog === true) {
 	client.on('debug', dbug => {
-    console.log(`[AdvLog]: ${dbug}`)
+    console.log(`[advancedLog]: ${dbug}`)
 })}
 
 client.on('disconnect', () => {
@@ -96,21 +103,5 @@ client.on('disconnect', () => {
 		 console.log(`[Debug]: ${err}`)
 	 })
  })
- /*
- 	Modular Index!
- */
- 	const os = require('os')
- 	const fs = require('fs')
- try {
- 	fs.watch('scripts')
- 	fs.on('change', chg => {
- 		console.log(chg)
- 	})
- } catch(err) {
-	 console.log(`[Modular Index]: ${err}`)
- }
 
- /*
-  	End of Modular Index!
- */
 client.login(seto.userToken);
