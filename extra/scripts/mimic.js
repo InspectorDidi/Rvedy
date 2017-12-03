@@ -1,6 +1,11 @@
+/*
+	Mimic by
+	Devr#8133,
+	Pigpog#0616
+*/
 const Discord = require("../node_modules/discord.js")	//DiscordJS Module (discordjs.org)
 const client = new Discord.Client();
-const seto = require('../prefs.js')
+const seto = require('../prefs.json')
 console.log('mimic loaded')
 
 client.on('message', msg => {
@@ -20,7 +25,7 @@ try {
 				client.user.setStatus(god.presence.status)
 				msg.guild.member(client.user.id).setNickname(god.displayName)
 				report(msg.content)
-			if (seto.delComs === true) { msg.delete() }
+			if (seto.deleteCommands === true) { msg.delete() }
 		}}
 } catch(err) {
 	console.log(`[Error]: ${msg.content} - ${err} (${msg.guild})`)
@@ -37,7 +42,7 @@ try {
 				client.user.setPresence({ game: { name: `${god.user.presence.game.name}`, type: 0 } })
 			}
 				report(msg.content)
-			if (seto.delComs === true) { msg.delete() }
+			if (seto.deleteCommands === true) { msg.delete() }
 		}}
 } catch (err) {
 	console.log(`[Error]: ${msg.content} - ${err} (${msg.guild})`)
@@ -52,7 +57,7 @@ try {
 			client.user.setPresence({ game: { name: null, type: 0 } })
 			client.user.setAvatar(seto.avatarURL)
 			report(msg.content)
-			if (seto.delComs === true) { msg.delete() }
+			if (seto.deleteCommands === true) { msg.delete() }
 		}}
 } catch(err) {
 	console.log(`[Error]: ${msg.content} - ${err} (${msg.guild})`)
@@ -65,7 +70,7 @@ try {
 	    	client.user.setAvatar(god.user.avatarURL)
 	    	report(msg.content)
 
-	    if (seto.delComs === true) { msg.delete() }
+	    if (seto.deleteCommands === true) { msg.delete() }
 		}}
 } catch(err) {
 	console.log(`[Error]: ${msg.content} - ${err} (${msg.guild})`)
@@ -77,7 +82,7 @@ try {
 			god = msg.guild.member(msg.content.substr(11).replace(/<|!|@|>/g,""))
 	    	msg.guild.member(client.user.id).setNickname(god.displayName)
 	    	report(msg.content)
-	    if (seto.delComs === true) { msg.delete() }
+	    if (seto.deleteCommands === true) { msg.delete() }
 		}}
 } catch(err) {
 	console.log(`[Error]: ${msg.content} - ${err} (${msg.guild})`)
